@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SparkFinisher AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SparkFinisher<span>.ai</span></h1>
+            <p>Paste a URL and let AI finish the boring work.</p>
+        </header>
+
+        <section class="action-box">
+            <input type="text" id="targetUrl" placeholder="https://example.com">
+            <button onclick="startAgent()">Finish My Spark</button>
+        </section>
+
+        <section class="status-panel">
+            <div class="status-header">
+                <h3>Live Agent Activity</h3>
+                <span id="statusBadge" class="badge">Idle</span>
+            </div>
+            <div id="logOutput" class="log-window">
+                <p class="system-msg">> System ready. Waiting for target...</p>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
