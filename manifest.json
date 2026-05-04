@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Sparx Spark Finisher",
+  "version": "1.0",
+  "permissions": ["storage", "activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["https://*.sparxmaths.uk/*"],
+      "js": ["script.js"],
+      "css": ["style.css"]
+    }
+  ]
+}
