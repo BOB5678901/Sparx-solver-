@@ -1,22 +1,15 @@
-async function startAgent() {
-    const url = document.getElementById('targetUrl').value;
-    const log = document.getElementById('logOutput');
-    const badge = document.getElementById('statusBadge');
+// Listen for clicks on the Sparx submit button
+document.addEventListener('click', (event) => {
+    if (event.target.innerText === 'Submit') {
+        const bookworkCode = document.querySelector('.bookwork-code-selector')?.innerText;
+        const answerInput = document.querySelector('input[type="text"]')?.value;
 
-    if (!url) return alert("Please enter a URL!");
+        if (bookworkCode && answerInput) {
+            // Save to browser storage
+            chrome.storage.local.set({ [bookworkCode]: answerInput }, () => {
+                console.log(`Saved: ${bookworkCode} = ${answerInput}`);
+            });
+        }
+    }
+});
 
-    badge.innerText = "Active";
-    badge.style.background = "#4ade80";
-    
-    // Simulate live logs from your backend
-    addLog(`Navigating to ${url}...`);
-    setTimeout(() => addLog("Analyzing page structure..."), 1500);
-    setTimeout(() => addLog("Found 3 questions. Generating answers..."), 3000);
-    setTimeout(() => addLog("Success: Form completed!"), 5000);
-}
-
-function addLog(message) {
-    const log = document.getElementById('logOutput');
-    log.innerHTML += `<p class="agent-msg">> ${message}</p>`;
-    log.scrollTop = log.scrollHeight;
-}
